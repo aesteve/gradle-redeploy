@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'application'
 	id 'idea'
+	id 'com.github.johnrengelman.shadow' version '1.2.2'
 }
 
 repositories {
@@ -16,7 +17,7 @@ mainClassName = 'io.vertx.core.Launcher'
 def main = 'foo.bar.Main'
 
 run {
-	args = ['run', '--redeploy="src/**/*.java"', "--launcher-class=${main}"]
+	args = ['run', '--redeploy="src/**/*.java"', "--launcher-class=${main}", "-on-redeploy='gradlew shadowJar'"]
 }
 
 task wrapper(type: Wrapper) {

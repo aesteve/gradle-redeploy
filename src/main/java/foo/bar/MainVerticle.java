@@ -14,7 +14,7 @@ public class MainVerticle extends AbstractVerticle {
 		System.out.println("deploy");
 		server = vertx.createHttpServer();
 		server.requestHandler( req -> {
-			req.response().end("Hello");
+			req.response().end("Hello2");
 		});
 		server.listen(9000, res -> fut.complete());
 	}
