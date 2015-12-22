@@ -14,10 +14,10 @@ dependencies {
 }
 
 mainClassName = 'io.vertx.core.Launcher'
-def main = 'foo.bar.Main'
+def mainVerticle = 'foo.bar.MainVerticle'
 
 run {
-	args = ['run', '--redeploy="src/**/*.java"', "--launcher-class=${main}", "-on-redeploy='gradlew shadowJar'"]
+	args = ['run', mainVerticle, '--redeploy=src/**/*.java', "--launcher-class=$mainClassName", "--on-redeploy=./gradlew shadowJar"]
 }
 
 task wrapper(type: Wrapper) {
